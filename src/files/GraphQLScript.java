@@ -24,7 +24,7 @@ public class GraphQLScript {
         System.out.println(characterName);
 
         //Mutations
-        String newCharacter = "Jake Dawson";
+        String newCharacter = "Jude law";
         String mutationResponse = given().log().all().header("content-type", "application/json")
                 .body("{\"query\":\"mutation($locationName:String!, $characterName:String!, $episodeName:String!) {\\n  \\n  \\n  createLocation(location: {name: $locationName, type: \\\"SouthZone\\\", dimension: \\\"234\\\"}) {\\n    id\\n  }\\n  createCharacter(character: {name: $characterName, type: \\\"LittleMan\\\", status: \\\"Active\\\", species: \\\"Sapien\\\", gender: \\\"Male\\\", image: \\\"png\\\", locationId: 24037, originId: 24037}) {\\n    id\\n  }\\n  createEpisode(episode: {name:$episodeName, air_date: \\\"21-may-2010\\\", episode:\\\"hulu\\\"}){\\n    id\\n  }\\n  \\n}\\n\",\"variables\":{\"locationName\":\"Hungary\",\"characterName\":\""+newCharacter+"\",\"episodeName\":\"The wild travel\"}}")
                 .when().post("https://rahulshettyacademy.com/gq/graphql")
